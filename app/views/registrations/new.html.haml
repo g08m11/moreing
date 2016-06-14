@@ -1,0 +1,25 @@
+#registrations-new
+  .col-xs-6.left-content
+    %h1 #moreing
+    %p.ex
+      このサイトは、就活/転活応援を応援するSNSです。moreiが提供しています。
+  .col-xs-6.right-content
+    = form_for @user, url: registrations_path, method: :post do |f|
+      %h2
+        会員登録する
+      - @user.errors.each do |attr, message|
+        .alert.alert-danger= message
+      .form-group
+        = f.label :name, "ユーザーID: @morei_jp", class: "control-label"
+        = f.text_field :name, class: "form-control"
+      .form-group
+        = f.label :email,"メールアドレス: hello@morei.jp", class: "control-label"
+        = f.text_field :email, class: "form-control"
+      .form-group
+        = f.label :password, "パスワード: 6文字以上", class: "control-label"
+        = f.password_field :password, class: "form-control"
+      .form-group
+        = f.label :password_confirmation, "確認用パスワード: 6文字以上", class: "control-label"
+        = f.password_field :password_confirmation, class: "form-control"
+      = f.submit "登録する", class: "btn btn-primary"
+      .clear
