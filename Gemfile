@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sorcery'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 
 # Use Unicorn as the app server
