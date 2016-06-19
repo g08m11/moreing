@@ -1,12 +1,32 @@
-.col-xs-8#users-content
-    .list-group
-      .list-group-item.user-list
-        %h2 ユーザー一覧
-      = div_for @users, class: "list-group-item" do |u|
-        %h4.user
-        %span.user-name
-          = link_to u.name, user_path(u)
-        %span.user-id
-          @#{u.name}
-        .bio
-          = u.bio
+#users-content
+  float: none
+  margin: 0 auto 35px
+  padding: 0px
+  background-color: #fff
+  border: 1px solid #ddd
+  border-radius: 6px
+  border-bottom-width: 3px
+  .list-group
+    margin-bottom: -1px
+    .list-group-item
+      border: none
+      border-bottom: 1px solid #ddd
+      margin-bottom: 0px
+      &:last-child
+      .user
+        .user-name
+          a
+            color: #555
+        .user-id
+          font-size: 14px
+          color: #aaa
+          font-weight: 400
+        .time
+          font-size: 12px
+          color: #aaa
+          font-weight: 400
+    .user-list
+      border-bottom-width: 2px
+      h2
+        font-size: 20px
+        margin: 0px
