@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resource :registrations, only: [:new, :create]
   resource :sessions, only: [:new, :create, :destroy]
+  resource :settings, only: [:edit, :update]
 
   root to: 'registrations#new'
 
