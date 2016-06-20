@@ -3790,3 +3790,47 @@ Processing by SettingsController#edit as HTML
   Rendered settings/edit.html.haml within layouts/application (3.9ms)
   Rendered layouts/_header.html.haml (0.7ms)
 Completed 200 OK in 38ms (Views: 35.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/settings/edit" for ::1 at 2016-06-20 17:04:15 +0900
+Processing by SettingsController#edit as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered settings/edit.html.haml within layouts/application (1.3ms)
+  Rendered layouts/_header.html.haml (1.4ms)
+Completed 200 OK in 4470ms (Views: 4468.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/settings.self-b9aaa1ff3c9a6a0aceb59bb0364f117154ddaee1bc2b612ac57bf35242260b3e.css?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/sessions.self-574bfca2d96f0dfd008451889d23f813f28b569a276ff5334236c2872df027a4.css?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/application.self-ba95a55625198b745370e8e7e3cbcf8a796faaea86fc1522bd1601cc6cfb48bb.css?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/registrations.self-e58aa13c9be72ed1f72a99df2b2ca6a814043e9916e6c3ce66a9173b303f7ae5.css?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-20 17:04:20 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-06-20 17:04:20 +0900
