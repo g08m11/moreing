@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :require_login
+
   def new
     @user = User.new
   end
@@ -13,6 +15,11 @@ class SessionsController < ApplicationController
       @user = User.new(email: email)
       render :new
     end
+  end
+
+  def destroy
+    logout
+    redirect_to root_url
   end
 
   private
