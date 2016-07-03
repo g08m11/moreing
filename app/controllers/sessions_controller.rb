@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, :except=>[:new, :create]
 
   def new
     @user = User.new
@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # ログイン機能がバグってるためこのあたりも後で治す。
   def destroy
     logout
     redirect_to root_url
