@@ -8183,3 +8183,117 @@ Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-04 18:25:40 +0900
+
+
+Started GET "/" for ::1 at 2016-07-04 18:26:13 +0900
+Processing by RegistrationsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/tweets" for ::1 at 2016-07-04 18:26:13 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."inverse_follower_id" WHERE "follows"."follower_id" = ?  [["follower_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."inverse_follower_id" = ?[0m  [["inverse_follower_id", 1]]
+  Rendered tweets/_panel.html.haml (6.4ms)
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  ORDER BY "tweets"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFavorite Exists (0.1ms)[0m  SELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1  [["tweet_id", 3], ["user_id", 1]]
+  [1m[36mFollow Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1[0m  [["inverse_follower_id", 1], ["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFavorite Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1[0m  [["tweet_id", 2], ["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1  [["inverse_follower_id", 1], ["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFavorite Exists (0.1ms)[0m  SELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1  [["tweet_id", 1], ["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1[0m  [["inverse_follower_id", 1], ["follower_id", 1]]
+  Rendered users/_tweet.html.haml (13.1ms)
+  Rendered tweets/index.html.haml within layouts/application (22.4ms)
+  Rendered layouts/_header.html.haml (0.8ms)
+Completed 200 OK in 54ms (Views: 51.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/sessions" for ::1 at 2016-07-04 18:26:17 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sR4NvISIC0G7ChmSwlulvwTo0dVdUorqdwx2Vr/uCYxHkSzn98N53O0SsvQ5b41XBWRbJqaKCjQb8L+zVzKC/g=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2016-07-04 18:26:17 +0900
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (24.5ms)
+Completed 200 OK in 95ms (Views: 93.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/back_image-54d0983b4741831d968e7a17a9801752342dd3fdbabf137d2cbcb2d4ed647520.png" for ::1 at 2016-07-04 18:26:17 +0900
+
+
+Started GET "/sessions/new" for ::1 at 2016-07-04 18:26:20 +0900
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.haml within layouts/sessions (4.7ms)
+Completed 200 OK in 81ms (Views: 80.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-07-04 18:26:21 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ri9gjTBt2ShPIV+z6oQWxHF1n94c2Yx0K4D1q6ehHxtK5eY2ERwBGgJ0ze/OFNbgNrDrwaicuHcCoUJa3jHopA==", "user"=>{"email"=>"morei0811@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = 'morei0811@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 154ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets" for ::1 at 2016-07-04 18:26:21 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."inverse_follower_id" WHERE "follows"."follower_id" = ?  [["follower_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."inverse_follower_id" = ?[0m  [["inverse_follower_id", 1]]
+  Rendered tweets/_panel.html.haml (11.0ms)
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  ORDER BY "tweets"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFavorite Exists (0.1ms)[0m  SELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1  [["tweet_id", 3], ["user_id", 1]]
+  [1m[36mFollow Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1[0m  [["inverse_follower_id", 1], ["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFavorite Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1[0m  [["tweet_id", 2], ["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1  [["inverse_follower_id", 1], ["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFavorite Exists (0.1ms)[0m  SELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1  [["tweet_id", 1], ["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1[0m  [["inverse_follower_id", 1], ["follower_id", 1]]
+  Rendered users/_tweet.html.haml (16.7ms)
+  Rendered tweets/index.html.haml within layouts/application (33.6ms)
+  Rendered layouts/_header.html.haml (0.6ms)
+Completed 200 OK in 75ms (Views: 72.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2016-07-04 18:26:23 +0900
+Processing by RegistrationsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets" for ::1 at 2016-07-04 18:26:23 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."inverse_follower_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."inverse_follower_id" = ?  [["inverse_follower_id", 1]]
+  Rendered tweets/_panel.html.haml (6.2ms)
+  [1m[36mTweet Load (0.3ms)[0m  [1mSELECT "tweets".* FROM "tweets"  ORDER BY "tweets"."created_at" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFavorite Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1[0m  [["tweet_id", 3], ["user_id", 1]]
+  [1m[35mFollow Exists (0.1ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1  [["inverse_follower_id", 1], ["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFavorite Exists (0.2ms)[0m  SELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1  [["tweet_id", 2], ["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1[0m  [["inverse_follower_id", 1], ["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFavorite Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1[0m  [["tweet_id", 1], ["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1  [["inverse_follower_id", 1], ["follower_id", 1]]
+  Rendered users/_tweet.html.haml (12.1ms)
+  Rendered tweets/index.html.haml within layouts/application (21.8ms)
+  Rendered layouts/_header.html.haml (0.6ms)
+Completed 200 OK in 61ms (Views: 58.4ms | ActiveRecord: 1.3ms)
