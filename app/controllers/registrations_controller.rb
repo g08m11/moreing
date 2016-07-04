@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
     @user = User.new(params_user)
 
     if @user.save
-      login(params_user[:email], params_user[:password])
+      login(@user.email, @user.password)
     else
       render :new
     end
