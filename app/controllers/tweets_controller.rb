@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.all
+    @tweet  = Tweet.new
   end
 
   # GET /tweets/1
@@ -30,7 +31,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
+        format.html { redirect_to tweets_url, notice: 'ツイート/POST成功！' }
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { render :new }
