@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :tweets
   resources :users
   resource :registrations, only: [:new, :create]
   resource :sessions, only: [:new, :create, :destroy]
   resource :settings, only: [:edit, :update]
+  resources :tweets
 
   root to: 'registrations#new'
 

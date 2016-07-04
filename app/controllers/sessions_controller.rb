@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   def new
     @user = User.new
+    redirect_to tweets_url if logged_in?
   end
 
   def create
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
     password = params_user[:password]
 
     if login(email, password)
-      redirect_to root_url, notice: "サインインしました"
+      redirect_to tweets_url, notice: "サインインしました"
     else
       @user = User.new(email: email)
       render :new
