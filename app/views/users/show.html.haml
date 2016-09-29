@@ -4,18 +4,4 @@
     - if @user.tweets.empty?
       .list-group-item
         まだツイートはありません
-    .list-group
-      - if @user.tweets.empty?
-        .list-group-item
-          まだツイートはありません
-  = render partial: "users/tweet", collection: @user.tweets
-
-
-
-
-
-
-
-
-
-
+    = render partial: "users/tweet", collection: @user.tweets

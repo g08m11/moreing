@@ -4,7 +4,7 @@ class CreateFavorites < ActiveRecord::Migration
       t.integer :user_id
       t.integer :tweet_id
 
-      t.timestamps null: false
+      t.timestamps
 
       t.index :user_id
       t.index :tweet_id

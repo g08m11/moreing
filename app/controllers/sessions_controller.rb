@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  before_filter :require_login, :except=>[:new, :create]
-
   def new
     @user = User.new
     redirect_to tweets_url if logged_in?

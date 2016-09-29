@@ -8,8 +8,8 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to request.referer, notice: "お気に入りに登録しました"
     else
-      redirect_to request.referer, alert: "この投稿はお気に入りに登録できません"
-    end
+      redirect_to request.referer, alert: "このツイートはお気に入りに登録できません"
+   end
   end
 
   def destroy

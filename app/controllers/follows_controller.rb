@@ -3,6 +3,7 @@ class FollowsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
+
     if @user.inverse_follows.create(follower: current_user)
       redirect_to request.referer, notice: "フォローしました"
     else

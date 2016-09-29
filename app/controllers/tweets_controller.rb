@@ -13,6 +13,7 @@ class TweetsController < ApplicationController
     @tweets = Tweet.eager_load(user: :inverse_follows).where(follows: { follower_id: current_user.id })
     @tweet  = Tweet.new
   end
+
   # GET /tweets/1
   # GET /tweets/1.json
   def show
@@ -35,7 +36,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to tweets_url, notice: 'ツイート/POST成功！' }
+        format.html { redirect_to tweets_url, notice: 'Tweet was successfully created.' }
         format.json { render :show, status: :created, location: @tweet }
       else
         @tweets = Tweet.all

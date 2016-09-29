@@ -4,9 +4,8 @@ class CreateTweets < ActiveRecord::Migration
       t.integer :user_id
       t.string :content
 
-      t.timestamps null: false
-      t.index :user_id
-      t.index :created_at
+      t.timestamps
+
       t.index :user_id
       t.index :created_at
     end

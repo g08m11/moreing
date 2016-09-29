@@ -11,6 +11,7 @@ class SettingsController < ApplicationController
       render :edit
     end
   end
+
   private
 
   def params_user
