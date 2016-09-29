@@ -1,0 +1,101 @@
+
+
+Started GET "/" for ::1 at 2016-09-29 12:26:02 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (13.5ms)
+Completed 200 OK in 435ms (Views: 398.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/registrations" for ::1 at 2016-09-29 12:26:15 +0900
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uo7n6wdzOE5G2G0AFWDyH0UUROsCgfEJ0xXlj+iZ97CdNbjgMLJUVlqCnAGDZ1Vf6ObX8h+yRmITjt3oKJB13w==", "user"=>{"name"=>"morei2222", "email"=>"morei@yahoo.co.jp", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER('morei2222') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('morei@yahoo.co.jp') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered registrations/new.html.haml within layouts/registrations (1.9ms)
+Completed 200 OK in 208ms (Views: 30.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/registrations" for ::1 at 2016-09-29 12:26:24 +0900
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+xTyyAHXjDaG3zH0wUs/6Th573EnpkGkX5qBtY2kq+bcr63DNhbgLpqFwPVXTJiplYt8aDqV9s+fAbnSTa0piQ==", "user"=>{"name"=>"morei22221", "email"=>"morei1@yahoo.co.jp", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER('morei22221') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('morei1@yahoo.co.jp') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "salt", "crypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "morei22221"], ["email", "morei1@yahoo.co.jp"], ["salt", "zYCUVxqhJPfwM2YVNt4y"], ["crypted_password", "$2a$10$E5kIA6vRyR6RP9XNHqf0qubKuX0/.DYM1/UmR93Fwu5pX1geF1pAS"], ["created_at", "2016-09-29 03:26:24.667402"], ["updated_at", "2016-09-29 03:26:24.667402"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = 'morei1@yahoo.co.jp'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 319ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/tweets" for ::1 at 2016-09-29 12:26:24 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."inverse_follower_id" WHERE "follows"."follower_id" = ?  [["follower_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."inverse_follower_id" = ?[0m  [["inverse_follower_id", 3]]
+  Rendered tweets/_panel.html.haml (78.3ms)
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  ORDER BY "tweets"."created_at" DESC
+  Rendered users/_tweet.html.haml (0.0ms)
+  Rendered tweets/index.html.haml within layouts/application (86.6ms)
+  Rendered layouts/_header.html.haml (3.3ms)
+Completed 200 OK in 134ms (Views: 124.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets/timeline" for ::1 at 2016-09-29 12:26:31 +0900
+Processing by TweetsController#timeline as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."inverse_follower_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."inverse_follower_id" = ?  [["inverse_follower_id", 3]]
+  Rendered tweets/_panel.html.haml (11.8ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "tweets"."id" AS t0_r0, "tweets"."user_id" AS t0_r1, "tweets"."content" AS t0_r2, "tweets"."created_at" AS t0_r3, "tweets"."updated_at" AS t0_r4, "users"."id" AS t1_r0, "users"."email" AS t1_r1, "users"."crypted_password" AS t1_r2, "users"."salt" AS t1_r3, "users"."created_at" AS t1_r4, "users"."updated_at" AS t1_r5, "users"."name" AS t1_r6, "users"."screen_name" AS t1_r7, "users"."bio" AS t1_r8, "follows"."id" AS t2_r0, "follows"."follower_id" AS t2_r1, "follows"."inverse_follower_id" AS t2_r2, "follows"."created_at" AS t2_r3, "follows"."updated_at" AS t2_r4 FROM "tweets" LEFT OUTER JOIN "users" ON "users"."id" = "tweets"."user_id" LEFT OUTER JOIN "follows" ON "follows"."inverse_follower_id" = "users"."id" WHERE "follows"."follower_id" = 3  ORDER BY "tweets"."created_at" DESC[0m
+  Rendered users/_tweet.html.haml (0.0ms)
+  Rendered tweets/timeline.html.haml within layouts/application (22.0ms)
+  Rendered layouts/_header.html.haml (4.5ms)
+Completed 200 OK in 65ms (Views: 61.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tweets" for ::1 at 2016-09-29 12:26:31 +0900
+Processing by TweetsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."inverse_follower_id" WHERE "follows"."follower_id" = ?  [["follower_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."inverse_follower_id" = ?[0m  [["inverse_follower_id", 3]]
+  Rendered tweets/_panel.html.haml (8.4ms)
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  ORDER BY "tweets"."created_at" DESC
+  Rendered users/_tweet.html.haml (0.0ms)
+  Rendered tweets/index.html.haml within layouts/application (14.0ms)
+  Rendered layouts/_header.html.haml (1.2ms)
+Completed 200 OK in 50ms (Views: 48.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/tweets" for ::1 at 2016-09-29 12:26:34 +0900
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jafkCEXh+bhY6LbIdhaYRL61L6cKtJ40HlsvztEWapiqHLsDciCVoESyR8ngET8EE0e8vheHKV/ewBepER/o9w==", "tweet"=>{"content"=>"あああああああああ"}, "commit"=>"つぶやく"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tweets" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "あああああああああ"], ["user_id", 3], ["created_at", "2016-09-29 03:26:34.434706"], ["updated_at", "2016-09-29 03:26:34.434706"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 12ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/tweets" for ::1 at 2016-09-29 12:26:34 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."inverse_follower_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."inverse_follower_id" = ?  [["inverse_follower_id", 3]]
+  Rendered tweets/_panel.html.haml (7.4ms)
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  ORDER BY "tweets"."created_at" DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mFavorite Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "favorites" WHERE "favorites"."tweet_id" = ? AND "favorites"."user_id" = ? LIMIT 1[0m  [["tweet_id", 1], ["user_id", 3]]
+  [1m[35mFollow Exists (0.2ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."inverse_follower_id" = ? AND "follows"."follower_id" = ? LIMIT 1  [["inverse_follower_id", 3], ["follower_id", 3]]
+  Rendered users/_tweet.html.haml (18.4ms)
+  Rendered tweets/index.html.haml within layouts/application (29.5ms)
+  Rendered layouts/_header.html.haml (0.8ms)
+Completed 200 OK in 65ms (Views: 60.8ms | ActiveRecord: 1.5ms)
