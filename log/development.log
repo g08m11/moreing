@@ -8796,3 +8796,348 @@ Processing by TweetsController#index as HTML
   Rendered tweets/index.html.haml within layouts/application (10.0ms)
   Rendered layouts/_header.html.haml (0.6ms)
 Completed 200 OK in 52ms (Views: 49.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-09-29 12:21:15 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 49ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/tweets" for ::1 at 2016-09-29 12:21:15 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?  [["user_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."inverse_follower_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 2]]
+  [1m[35m (2.4ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."inverse_follower_id" = ?  [["inverse_follower_id", 2]]
+  Rendered tweets/_panel.html.haml (46.6ms)
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  ORDER BY "tweets"."created_at" DESC[0m
+  Rendered users/_tweet.html.haml (0.0ms)
+  Rendered tweets/index.html.haml within layouts/application (55.3ms)
+  Rendered layouts/_header.html.haml (7.6ms)
+Completed 200 OK in 459ms (Views: 446.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/sessions.self-574bfca2d96f0dfd008451889d23f813f28b569a276ff5334236c2872df027a4.css?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/settings.self-b9aaa1ff3c9a6a0aceb59bb0364f117154ddaee1bc2b612ac57bf35242260b3e.css?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/application.self-9a783f3d5c4d853d73f8f7fd7da30a2281e2b4b334d1c430da5811573c5c0b5f.css?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/registrations.self-e58aa13c9be72ed1f72a99df2b2ca6a814043e9916e6c3ce66a9173b303f7ae5.css?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/tweets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-29 12:21:16 +0900
+
+
+Started DELETE "/sessions" for ::1 at 2016-09-29 12:21:17 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ar9MpEzW8gLZLSa5v3TTIeNxBexdQI7gsWB9GECUEQwLaDf6YJxFz5l4s1VlhZOVQw6cdKbkzgdQaGUFt1HjIQ=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-09-29 12:21:18 +0900
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (9.0ms)
+Completed 200 OK in 86ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-29 12:22:28 +0900
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (1.7ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/registrations.self-e58aa13c9be72ed1f72a99df2b2ca6a814043e9916e6c3ce66a9173b303f7ae5.css?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/sessions.self-574bfca2d96f0dfd008451889d23f813f28b569a276ff5334236c2872df027a4.css?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/settings.self-b9aaa1ff3c9a6a0aceb59bb0364f117154ddaee1bc2b612ac57bf35242260b3e.css?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/application.self-9a783f3d5c4d853d73f8f7fd7da30a2281e2b4b334d1c430da5811573c5c0b5f.css?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/tweets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-29 12:22:28 +0900
+
+
+Started GET "/" for ::1 at 2016-09-29 12:23:01 +0900
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (3.0ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/registrations.self-e58aa13c9be72ed1f72a99df2b2ca6a814043e9916e6c3ce66a9173b303f7ae5.css?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/sessions.self-574bfca2d96f0dfd008451889d23f813f28b569a276ff5334236c2872df027a4.css?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/settings.self-b9aaa1ff3c9a6a0aceb59bb0364f117154ddaee1bc2b612ac57bf35242260b3e.css?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/application.self-9a783f3d5c4d853d73f8f7fd7da30a2281e2b4b334d1c430da5811573c5c0b5f.css?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/tweets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-29 12:23:01 +0900
+
+
+Started GET "/" for ::1 at 2016-09-29 12:23:37 +0900
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (5.4ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.self-574bfca2d96f0dfd008451889d23f813f28b569a276ff5334236c2872df027a4.css?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/registrations.self-e58aa13c9be72ed1f72a99df2b2ca6a814043e9916e6c3ce66a9173b303f7ae5.css?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/application.self-9a783f3d5c4d853d73f8f7fd7da30a2281e2b4b334d1c430da5811573c5c0b5f.css?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/settings.self-b9aaa1ff3c9a6a0aceb59bb0364f117154ddaee1bc2b612ac57bf35242260b3e.css?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/tweets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-29 12:23:37 +0900
+
+
+Started GET "/" for ::1 at 2016-09-29 12:23:46 +0900
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (7.3ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/registrations.self-e58aa13c9be72ed1f72a99df2b2ca6a814043e9916e6c3ce66a9173b303f7ae5.css?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/application.self-9a783f3d5c4d853d73f8f7fd7da30a2281e2b4b334d1c430da5811573c5c0b5f.css?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/sessions.self-574bfca2d96f0dfd008451889d23f813f28b569a276ff5334236c2872df027a4.css?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/settings.self-b9aaa1ff3c9a6a0aceb59bb0364f117154ddaee1bc2b612ac57bf35242260b3e.css?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/tweets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-29 12:23:46 +0900
+
+
+Started GET "/" for ::1 at 2016-09-29 12:23:56 +0900
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (5.3ms)
+Completed 200 OK in 43ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/registrations.self-e58aa13c9be72ed1f72a99df2b2ca6a814043e9916e6c3ce66a9173b303f7ae5.css?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/sessions.self-574bfca2d96f0dfd008451889d23f813f28b569a276ff5334236c2872df027a4.css?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/application.self-9a783f3d5c4d853d73f8f7fd7da30a2281e2b4b334d1c430da5811573c5c0b5f.css?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/settings.self-b9aaa1ff3c9a6a0aceb59bb0364f117154ddaee1bc2b612ac57bf35242260b3e.css?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/tweets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-29 12:23:56 +0900
+
+
+Started GET "/" for ::1 at 2016-09-29 12:24:05 +0900
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.haml within layouts/registrations (5.6ms)
+Completed 200 OK in 48ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/registrations.self-e58aa13c9be72ed1f72a99df2b2ca6a814043e9916e6c3ce66a9173b303f7ae5.css?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/settings.self-b9aaa1ff3c9a6a0aceb59bb0364f117154ddaee1bc2b612ac57bf35242260b3e.css?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/sessions.self-574bfca2d96f0dfd008451889d23f813f28b569a276ff5334236c2872df027a4.css?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/application.self-9a783f3d5c4d853d73f8f7fd7da30a2281e2b4b334d1c430da5811573c5c0b5f.css?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/tweets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-09-29 12:24:05 +0900
